@@ -11,8 +11,6 @@ class CityActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         Log.d("CITY_ACTIVITY", "activity created")
         setContentView(R.layout.pick_city_screen)
-        setSupportActionBar(findViewById(R.id.toolbar))
-        title = "Weather"
         if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()

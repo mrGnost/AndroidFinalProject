@@ -17,4 +17,6 @@
     <string name="no_such_city">No such city found</string>
     <string name="dark_mode">Dark mode</string>
     <string name="light_mode">Light mode</string>
+    <string name="switched_to_dark">Switched to dark mode</string>
+    <string name="switched_to_light">Switched to light mode</string>
 </resources>

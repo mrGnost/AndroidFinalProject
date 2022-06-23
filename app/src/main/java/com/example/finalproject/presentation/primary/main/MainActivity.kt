@@ -4,6 +4,7 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.finalproject.R
@@ -15,8 +16,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(findViewById(R.id.toolbar))
-        title = "Weather"
         if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
@@ -40,13 +39,13 @@ class MainActivity : AppCompatActivity() {
                     button?.setIcon(R.drawable._01n)
                     button?.setTitle(R.string.dark_mode)
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                    delegate.applyDayNight()
+                    Toast.makeText(this, R.string.switched_to_light, Toast.LENGTH_SHORT).show()
                 }
                 else -> {
                     button?.setIcon(R.drawable._01d)
                     button?.setTitle(R.string.light_mode)
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                    delegate.applyDayNight()
+                    Toast.makeText(this, R.string.switched_to_dark, Toast.LENGTH_SHORT).show()
                 }
             }
         }

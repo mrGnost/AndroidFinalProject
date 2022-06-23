@@ -15,4 +15,6 @@
     <string name="no_such_city">Город не найден</string>
     <string name="dark_mode">Темная тема</string>
     <string name="light_mode">Светлая тема</string>
+    <string name="switched_to_dark">Включена темная тема</string>
+    <string name="switched_to_light">Включена светлая тема</string>
 </resources>

@@ -51,7 +51,7 @@ class MainDataFragment: Fragment() {
                 if (currentCity == "")
                     locationCall()
             } else {
-                Toast.makeText(context, R.string.no_geo_permission, Toast.LENGTH_SHORT)
+                Toast.makeText(context, R.string.no_geo_permission, Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -71,7 +71,7 @@ class MainDataFragment: Fragment() {
 
     private fun applyWeatherToView(weather: List<CurrentWeather>) {
         if (weather.isEmpty()) {
-            Toast.makeText(context, R.string.no_such_city, Toast.LENGTH_SHORT)
+            Toast.makeText(context, R.string.no_such_city, Toast.LENGTH_SHORT).show()
         }
         binding.currentWeather = weather.first()
         binding.weatherMainImage.setImageResource(resources.getIdentifier(
@@ -166,7 +166,6 @@ class MainDataFragment: Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         gson = GsonBuilder().create()
-        //locationCall(fusedLocationClient)
     }
 
     override fun onCreateView(
