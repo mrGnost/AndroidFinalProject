@@ -99,6 +99,14 @@ class MainDataFragment: Fragment() {
         binding.refreshLayout.isRefreshing = true
         Log.d("LOCATION", "location call started")
         val locationManager = context!!.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        try {
+            if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))
+                throw IllegalAccessException()
+        } catch (ex: Exception) {
+            Toast.makeText(context, R.string.no_geo_permission, Toast.LENGTH_SHORT)
+            loadWeather()
+            return
+        }
         val listener = LocationListener {
             Log.d("LOCATION", "location acquired")
             Log.d("LOCATION", "current city: $currentCity.")
