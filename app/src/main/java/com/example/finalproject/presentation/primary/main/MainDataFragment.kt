@@ -23,6 +23,7 @@ import com.example.finalproject.databinding.FragmentMainDataBinding
 import com.example.finalproject.model.datatype.weather.CurrentWeather
 import com.example.finalproject.presentation.adapter.WeatherAdapter
 import com.example.finalproject.presentation.primary.city.CityActivity
+import com.example.finalproject.presentation.primary.splash.SplashActivity
 import com.example.finalproject.presentation.viewmodel.MainViewModel
 import com.example.finalproject.utils.Common
 import com.google.gson.Gson
@@ -143,6 +144,10 @@ class MainDataFragment: Fragment() {
             return
         }
         applyWeatherToView(gson.fromJson(json, Array<CurrentWeather>::class.java).asList())
+    }
+
+    private fun showSplashScreen() {
+        startActivity(Intent(activity, SplashActivity::class.java))
     }
 
     private fun requestCity() {
