@@ -96,6 +96,7 @@ class MainDataFragment: Fragment() {
     }
 
     private fun locationCall() {
+        binding.refreshLayout.isRefreshing = true
         Log.d("LOCATION", "location call started")
         val locationManager = context!!.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         val listener = LocationListener {
