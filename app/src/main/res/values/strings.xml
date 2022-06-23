@@ -1,0 +1,20 @@
+<resources>
+    <string name="city_text" translatable="false">%1$s, %2$s</string>
+    <string name="temperature_text" translatable="false">%1$d°C</string>
+    <string name="humidity">Humidity</string>
+    <string name="humidity_text" translatable="false">%1$d%%</string>
+    <string name="wind">Wind</string>
+    <string name="wind_text">%1$.2fm/s</string>
+    <string name="pressure">Air pressure</string>
+    <string name="pressure_text">%1$d mm</string>
+    <string name="feels_like">Feels like</string>
+    <string name="app_name">Weather</string>
+    <string name="no_internet_cache">No internet connection</string>
+    <string name="offline_mode">App is in offline mode</string>
+    <string name="today">Today</string>
+    <string name="tomorrow">Tomorrow</string>
+    <string name="no_geo_permission">Weather forecast by current location is unavailable</string>
+    <string name="no_such_city">No such city found</string>
+    <string name="dark_mode">Dark mode</string>
+    <string name="light_mode">Light mode</string>
+</resources>

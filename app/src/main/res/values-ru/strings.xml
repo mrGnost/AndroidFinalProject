@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Погода</string>
+    <string name="humidity">Влажность</string>
+    <string name="wind">Ветер</string>
+    <string name="wind_text">%1$.2fм/с</string>
+    <string name="pressure">Атм. давление</string>
+    <string name="pressure_text">%1$d мм</string>
+    <string name="feels_like">По ощущениям</string>
+    <string name="no_internet_cache">Нет подключения к интернету</string>
+    <string name="offline_mode">Приложение в оффлайн-режиме</string>
+    <string name="today">Сегодня</string>
+    <string name="tomorrow">Завтра</string>
+    <string name="no_geo_permission">Прогноз по текущей геопозиции не доступен</string>
+    <string name="no_such_city">Город не найден</string>
+    <string name="dark_mode">Темная тема</string>
+    <string name="light_mode">Светлая тема</string>
+</resources>

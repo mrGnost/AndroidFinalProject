@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="capital"
+            type="com.example.finalproject.model.datatype.city_api.CityInfo" />
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginVertical="15dp">
+        <TextView
+            android:id="@+id/weather_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{capital.capital}"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:fontFamily="casual"
+            android:layout_marginStart="20dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{capital.name}"
+            android:textSize="20sp"
+            android:fontFamily="casual"
+            android:layout_marginStart="20dp"
+            />
+    </LinearLayout>
+</layout>
