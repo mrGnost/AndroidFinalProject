@@ -38,6 +38,7 @@ class MainDataFragment: Fragment() {
     private lateinit var gson: Gson
     private var currentCity = ""
     private var gpsPermission = false
+    private var locationCalled = false
     private val getContent = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == RESULT_OK) {
             Log.d("RETURN_DATA", "success")
@@ -102,6 +103,7 @@ class MainDataFragment: Fragment() {
     }
 
     private fun locationCall() {
+        locationCalled = true
         binding.refreshLayout.isRefreshing = true
         Log.d("LOCATION", "location call started")
         val locationManager = context!!.getSystemService(Context.LOCATION_SERVICE) as LocationManager
@@ -126,7 +128,7 @@ class MainDataFragment: Fragment() {
     }
 
     private fun updateWeather(city: String) {
-        if (Common.isConnectedInternet(context!!))
+        if (Common.isConnectedInternet(context!!) && city.isNotEmpty())
             apiCall(city)
         else {
             Toast.makeText(context, R.string.offline_mode, Toast.LENGTH_SHORT).show()
@@ -176,7 +178,7 @@ class MainDataFragment: Fragment() {
                 android.Manifest.permission.ACCESS_FINE_LOCATION
             ) == PackageManager.PERMISSION_GRANTED) {
             gpsPermission = true
-            if (currentCity == "")
+            if (!locationCalled && currentCity.isEmpty())
                 locationCall()
         } else {
             requestPermissionLauncher.launch(android.Manifest.permission.ACCESS_FINE_LOCATION)
@@ -203,15 +205,17 @@ class MainDataFragment: Fragment() {
         binding.refreshLayout.setOnRefreshListener {
             binding.refreshLayout.isRefreshing = true
             Log.d("REFRESH", currentCity)
-            if (currentCity == "" && gpsPermission)
+            if (currentCity.isEmpty() && gpsPermission)
                 locationCall()
             else
                 updateWeather(currentCity)
         }
-        if (currentCity == "" && gpsPermission)
-            locationCall()
-        else
-            updateWeather(currentCity)
+        if (!locationCalled) {
+            if (currentCity.isEmpty() && gpsPermission)
+                locationCall()
+            else
+                updateWeather(currentCity)
+        }
         binding.mainInfo.setOnClickListener {
             requestCity()
         }
