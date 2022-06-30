@@ -28,6 +28,9 @@ import com.example.finalproject.presentation.viewmodel.MainViewModel
 import com.example.finalproject.utils.Common
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class MainDataFragment: Fragment() {
     private lateinit var binding: FragmentMainDataBinding
@@ -78,7 +81,10 @@ class MainDataFragment: Fragment() {
         binding.weatherMainImage.setImageResource(resources.getIdentifier(
             weather.first().image, "drawable", activity!!.packageName
         ))
-        val dates = weather.groupBy { it.date }.keys.toList().sortedBy { it }
+        val dates = weather.groupBy { it.date }.keys.toList().sortedBy {
+            SimpleDateFormat("MMMM, dd").parse(it!!)
+        }
+        Log.d("RECYCLER_WEATHER", dates.toString())
         val todayWeather = weather.filter { it.date == dates[0] }
         var tomorrowWeather = emptyList<CurrentWeather>()
         if (dates.size > 1)
